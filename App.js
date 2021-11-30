@@ -16,6 +16,7 @@ export default function App() {
         setScore1(0);
         setScore2(0);
         setState([0, 0]);
+        setKol(0);
         setListOfScore([]);
     }
 
@@ -23,7 +24,7 @@ export default function App() {
         setListOfScore((list)=>{
             return [
                 ...list,
-                {score1: score1, score2: score2, state: state}
+                {score1: score1, score2: score2, state: state, kol:kol}
 
             ]
         })
@@ -34,9 +35,12 @@ export default function App() {
             setScore1(listOfScore[listOfScore.length-1].score1);
             setScore2(listOfScore[listOfScore.length-1].score2);
             setState(listOfScore[listOfScore.length-1].state);
+            setKol(listOfScore[listOfScore.length-1].kol);
             setListOfScore((list)=>{
                 return listOfScore.slice(0,-1);
             })
+        }else{
+            resetScore();
         }
     }
 
